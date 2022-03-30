@@ -4,3 +4,6 @@ api:
   sys:
     host: "localhost"
     port: "8081"  
+    client:
+      id: "b4cd9544533d4f418c1ea2d2a7536802"
+      secret: "09349A7b17294802b1410E3D9F552B37"

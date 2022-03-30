@@ -128,6 +128,12 @@ output application/json
         </ee:transform>
 		<logger level="INFO" doc:name="Logger" doc:id="bca6f649-4e0a-4ce2-af9b-5656304711b4" message="#[payload]"/>
 		<http:request method="PUT" doc:name="Request" doc:id="53ca817e-1d42-4a09-8ec3-3c18267bcb96" config-ref="HTTP_Request_configuration" path="/customer/{customerId}" >
+			<http:headers ><![CDATA[#[output application/java
+---
+{
+	client_id : p('api.sys.client.id'),
+	client_secret : p('api.sys.client.secret')
+}]]]></http:headers>
 			<http:uri-params ><![CDATA[#[output application/java
 ---
 {
@@ -144,6 +150,12 @@ output application/json
         </ee:transform>
 		<logger level="INFO" doc:name="Logger" doc:id="08954ff5-17c0-47e4-b980-b00fb6cfbcb5" message="#[payload]"/>
 		<http:request method="DELETE" doc:name="Request" doc:id="f2c9b181-dfac-451d-b06e-8b32af0fd38c" config-ref="HTTP_Request_configuration" path="/customer/{customerId}" >
+			<http:headers ><![CDATA[#[output application/java
+---
+{
+	client_id : p('api.sys.client.id'),
+	client_secret : p('api.sys.client.secret')
+}]]]></http:headers>
 			<http:uri-params ><![CDATA[#[output application/java
 ---
 {
@@ -160,6 +172,12 @@ output application/json
         </ee:transform>
 		<logger level="INFO" doc:name="Logger" doc:id="39d239c0-8d0f-4740-bb52-3dad181f4274" message="#[payload]"/>
 		<http:request method="GET" doc:name="Request" doc:id="73fa4ce7-5e30-479a-9a09-8410fb349b08" config-ref="HTTP_Request_configuration" path="/customer/{customerId}" >
+			<http:headers ><![CDATA[#[output application/java
+---
+{
+	client_id : p('api.sys.client.id'),
+	client_secret : p('api.sys.client.secret')
+}]]]></http:headers>
 			<http:uri-params ><![CDATA[#[output application/java
 ---
 {
@@ -178,7 +196,14 @@ customer: payload]]></ee:set-payload>
     </flow>
     <flow name="post:\customer:application\json:prc-customer-config">
 		<logger level="INFO" doc:name="Logger" doc:id="c86a229f-3322-4197-bf09-b1dc725fbe60" message="#[payload]"/>
-		<http:request method="POST" doc:name="Request" doc:id="2da20d36-189e-4a84-b883-ef884ecf5b90" config-ref="HTTP_Request_configuration" path="/customer"/>
+		<http:request method="POST" doc:name="Request" doc:id="2da20d36-189e-4a84-b883-ef884ecf5b90" config-ref="HTTP_Request_configuration" path="/customer">
+			<http:headers ><![CDATA[#[output application/java
+---
+{
+	client_id : p('api.sys.client.id'),
+	client_secret : p('api.sys.client.secret')
+}]]]></http:headers>
+		</http:request>
 		<logger level="INFO" doc:name="Logger" doc:id="f2d7c1e1-ea90-4cbe-8f6d-644190fc2e57" message="#[payload]"/>
     </flow>
 </mule>
