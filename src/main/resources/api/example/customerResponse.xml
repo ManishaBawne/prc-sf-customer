@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<customer>
+    <customerId>0o65j000000fxgSAAQ</customerId>
+    <firstName>ABC</firstName>
+    <lastName>PQR</lastName>
+    <contact>8945612352</contact>
+    <age>21.0</age>
+    <occupation>Developer</occupation>
+    <address>
+        <street>Market Street</street>
+        <city>Pune</city>
+        <state>Maharastra</state>
+        <country>India</country>
+    </address>
+</customer>

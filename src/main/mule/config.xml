@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	
+	 <http:listener-config name="prc-customer-httpListenerConfig">
+        <http:listener-connection host="${api.host}" port="${api.port}" />
+    </http:listener-config>
+    <apikit:config name="prc-customer-config" api="prc-customer.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="5ae3516b-9abd-4434-8d01-4509880909a8" basePath="/api" >
+		<http:request-connection host="${api.sys.host}" port="${api.sys.port}" />
+	</http:request-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="3bde1673-d19f-4a2c-9f11-90b4a04e19c7" file="${mule.env}-config.yaml" />
+	</mule>
